@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi_MigracionRD.Context;
+using Microsoft.EntityFrameworkCore.Sqlite;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApi_MigracionRD
 {
@@ -26,7 +29,8 @@ namespace WebApi_MigracionRD
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<AppDBContext>(options =>
+            options.UseSqlite(Configuration.GetConnectionString("DefaultConnectiongString")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
