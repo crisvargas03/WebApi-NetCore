@@ -10,7 +10,7 @@ namespace WebApi_MigracionRD.Models
     {
         [Required]
         public int Id { get; set; }
-        public int StatusName { get; set; }
+        public string StatusName { get; set; }
 
         public List<Request> Requests { get; set; }
     }

@@ -16,5 +16,7 @@ namespace WebApi_MigracionRD.Context
         }
 
         public DbSet<Person> Personas { get; set; }
+        public DbSet<Request> Solicitudes { get; set; }
+        public DbSet<Status> Estados { get; set; }
     }
 }
