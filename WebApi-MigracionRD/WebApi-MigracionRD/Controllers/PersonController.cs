@@ -24,6 +24,7 @@ namespace WebApi_MigracionRD.Controllers
         {
             return context.Personas.ToList();
         }
+
         [HttpGet ("{id}", Name ="PersonaById")]
         public ActionResult<Person> Get(int id)
         {

@@ -19,23 +19,10 @@ namespace WebApi_MigracionRD.Controllers
             this.context = context;
         }
 
-        [HttpGet]
+        [HttpGet (Name = "Status")]
         public ActionResult<IEnumerable<Status>> Get()
         {
             return context.Estados.ToList();
-        }
-
-        [HttpGet("{id}", Name = "StatusById")]
-        public ActionResult<Status> Get(int id)
-        {
-            var status = context.Estados.FirstOrDefault(x => x.Id == id);
-
-            if (status == null)
-            {
-                return NotFound();
-            }
-
-            return status;
         }
 
         [HttpPost]
@@ -43,7 +30,8 @@ namespace WebApi_MigracionRD.Controllers
         {
             context.Estados.Add(status);
             context.SaveChanges();
-            return new CreatedAtRouteResult("StatusById", new { id = status.Id }, status);
+            return new CreatedAtRouteResult("Status", new { id = status.Id }, status);
         }
+
     }
 }
