@@ -10,7 +10,9 @@ namespace WebApi_MigracionRD.Models
     {
         [Required]
         public int Id { get; set; }
+        [Required]
         public int PersonId { get; set; }
+        [Required]
         public int StatusId { get; set; }
         public DateTime CreationDate { get; set; }
 

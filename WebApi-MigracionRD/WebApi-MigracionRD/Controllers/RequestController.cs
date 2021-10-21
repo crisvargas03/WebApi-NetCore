@@ -75,19 +75,5 @@ namespace WebApi_MigracionRD.Controllers
             context.SaveChanges();
             return new CreatedAtRouteResult("RequestsById", new { id = request.Id }, request);
         }
-
-        [HttpGet("{StatusId}")]
-        public ActionResult<IEnumerable<Request>> Get(int statusid)
-        {
-            var requestByStatus = context.Solicitudes.Where(x => x.StatusId == statusid).ToList();
-
-            if (requestByStatus == null)
-            {
-                return NotFound();
-            }
-
-            return requestByStatus;
-        }
-
     }
 }
